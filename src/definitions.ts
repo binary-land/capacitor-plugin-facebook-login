@@ -4,6 +4,12 @@ declare module '@capacitor/core' {
   }
 }
 
+export interface AuthData {
+  id: string;
+  access_token: string;
+}
 export interface FacebookLoginPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  logIn(options: { permissions: string[] }): Promise<AuthData>;
+  logOut(): Promise<void>;
+  getCurrentUser(): Promise<AuthData>;
 }
