@@ -24,7 +24,7 @@ export class FacebookLoginWeb extends WebPlugin implements FacebookLoginPlugin {
                 access_token: accessToken,
               });
             } else {
-              reject();
+              resolve();
             }
           },
           {

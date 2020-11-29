@@ -1,6 +1,7 @@
 package biz.binaryland.plugins.facebooklogin;
 
 import android.content.Intent;
+import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -13,6 +14,8 @@ import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+
+import org.json.JSONException;
 
 import java.util.Collection;
 
@@ -56,7 +59,7 @@ public class FacebookLogin extends Plugin {
               return;
             }
 
-            savedCall.reject(null);
+            savedCall.success();
 
             saveCall(null);
           }
@@ -93,8 +96,8 @@ public class FacebookLogin extends Plugin {
 
     try {
       permissions = call.getArray("permissions").toList();
-    } catch (Exception e) {
-      call.reject(e.getMessage());
+    } catch (JSONException e) {
+      Log.e(getLogTag(), "Invalid Parameter", e);
     }
 
     LoginManager.getInstance().logInWithReadPermissions(getActivity(), permissions);
