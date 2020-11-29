@@ -12,7 +12,7 @@ export class FacebookLoginWeb extends WebPlugin implements FacebookLoginPlugin {
     });
   }
 
-  logIn(options: { permissions: string[] }): Promise<AuthData> {
+  logIn(options?: { permissions: string[] }): Promise<AuthData> {
     return new Promise((resolve, reject) => {
       try {
         FB.login(

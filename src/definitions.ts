@@ -9,7 +9,7 @@ export interface AuthData {
   access_token: string;
 }
 export interface FacebookLoginPlugin {
-  logIn(options: { permissions: string[] }): Promise<AuthData>;
+  logIn(options?: { permissions: string[] }): Promise<AuthData>;
   logOut(): Promise<void>;
   getCurrentUser(): Promise<AuthData>;
 }
