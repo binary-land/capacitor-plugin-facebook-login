@@ -24,7 +24,7 @@ export class FacebookLoginWeb extends WebPlugin implements FacebookLoginPlugin {
                 access_token: accessToken,
               });
             } else {
-              resolve();
+              reject();
             }
           },
           {
@@ -60,7 +60,7 @@ export class FacebookLoginWeb extends WebPlugin implements FacebookLoginPlugin {
               access_token: accessToken,
             });
           } else {
-            resolve();
+            reject();
           }
         });
       } catch (error) {

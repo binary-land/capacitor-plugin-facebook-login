@@ -59,7 +59,7 @@ public class FacebookLogin extends Plugin {
               return;
             }
 
-            savedCall.success();
+            savedCall.reject(null);
 
             saveCall(null);
           }
